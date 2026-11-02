@@ -1,0 +1,7 @@
+In a normal hotel booking, the customer depends on other parties for almost everything. The hotel keeps the booking records and decides about refunds, and the payment usually goes through a booking website or a bank before it reaches the hotel. So the customer cannot really check what is happening and has to trust everyone in the middle. My idea is to use the blockchain as the middle layer between the hotel and the guest. In simple terms, the smart contract keeps the records, holds the money and follows the rules automatically.
+
+Trust and transparency: every booking is saved on the blockchain, so the guest and the hotel can both check it at any time.
+
+Refunds: if the guest cancels before the deadline, the contract sends the refund automatically, without waiting for the hotel to decide.
+
+Payment intermediaries: the money stays in the contract, like an escrow and go to the hotel only when the check in is confirmed. No bank or booking website needs to hold it.
