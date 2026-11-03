@@ -26,3 +26,23 @@ Once a booking is confirmed, its price and details cannot be changed
 The hotel can withdraw the payment after the check-in time
 Each booking has a status like confirmed, cancelled or completed
 The same payment can not be refunded or withdrawn more than once
+
+
+
+
+Data
+
+For the rooms the smart contract need to store the room number, the price per night and whether the room is available or not.
+For each booking, it need to keep a booking id, the room number, the guest wallet address, the check-in date, the amount paid and the booking status.
+
+The contract also needs to know which rooms are already booked for each date to avoid double bookings.
+
+For personal information like names and emails, I would keep this in the hotel private system instead of putting it on the blockchain. The idea is to connect both systems using the booking id, so the hotel can identify the guest when they arrive.
+
+Integration with the Hotel System
+
+When a guest makes a booking, the smart contract checks the availability, receives the payment and records the reservation on the blockchain.
+
+After the transaction is confirmed, the hotel system can read the booking information and link it to the guest personal details stored privately.
+
+This way, the blockchain handles the booking rules, payments and refunds, while the hotel still manages guest information and the check-in process.
