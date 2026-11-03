@@ -5,3 +5,24 @@ Trust and transparency: every booking is saved on the blockchain, so the guest a
 Refunds: if the guest cancels before the deadline, the contract sends the refund automatically, without waiting for the hotel to decide.
 
 Payment intermediaries: the money stays in the contract, like an escrow and go to the hotel only when the check in is confirmed. No bank or booking website needs to hold it.
+
+
+Use Cases
+
+Hotel: register rooms, set the room price, view reservations and receive payments
+
+Guest: check available rooms, book a room and pay, view a reservation, cancel a booking before the deadline and get the money back when eligible
+
+Rules:
+
+Only the hotel owner can add rooms and set their prices
+Each booking is for one room and one night
+Two guests cannot book the same room for the same date
+The guest must pay the exact price to confirm a booking
+The payment stays in the smart contract until it is refunded or released to the hotel
+Only the guest who made the booking can cancel it
+If the guest cancels at least 24 hours before check-in, they receive a full refund, but after this deadline cancellation is not allowed
+Once a booking is confirmed, its price and details cannot be changed
+The hotel can withdraw the payment after the check-in time
+Each booking has a status like confirmed, cancelled or completed
+The same payment can not be refunded or withdrawn more than once
