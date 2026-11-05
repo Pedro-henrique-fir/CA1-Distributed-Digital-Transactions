@@ -46,3 +46,33 @@ When a guest makes a booking, the smart contract checks the availability, receiv
 After the transaction is confirmed, the hotel system can read the booking information and link it to the guest personal details stored privately.
 
 This way, the blockchain handles the booking rules, payments and refunds, while the hotel still manages guest information and the check-in process.
+
+
+Cryptography
+
+
+My system has four security needs: authentication, non-repudiation, integrity and confidentiality. I chose ECDSA (Elliptic Curve Digital Signature Algorithm), the method Ethereum already uses, because it covers most of them.
+
+Authentication: only the guest who made a booking can cancel it, and only the hotel can withdraw the payment. Every transaction is signed with the sender’s private key, and the signature proves which wallet sent it (Ethereum Community, 2026). The private key cannot be found from the public key (Ethereum Community, 2026), so nobody can cancel or withdraw in someone else’s name.
+
+Non-repudiation: because every booking is signed, the guest cannot later deny that they booked or cancelled. This helps if there is a dispute.
+
+Integrity: Ethereum stores data with Keccak-256 hashes. If anyone changes a stored booking, the root hash changes and the change is detected (Ethereum Community, 2025).
+
+Confidentiality: ECDSA does not encrypt data, and the blockchain is public. So the contract only stores the wallet address, room, date and amount. Names and emails stay in the hotel’s private system, linked by the booking id.
+
+Why ECDSA?
+
+First, the system needs asymmetric cryptography. With a symmetric method, like AES, the guest and the hotel would use the same secret key, so it would be impossible to prove which of them signed a transaction. With ECDSA, only the private key can sign, but anyone can check the signature with the public key, which proves who wrote the message (Ethereum Community, 2026).
+
+Second, ECDSA is already built into Ethereum. Every wallet uses it, and Solidity gives the contract the sender’s address in msg.sender (Solidity, 2025). Solidity also has a built-in function ecrecover that finds the address from an elliptic curve signature (Solidity, 2025). RSA could also sign data, but it would need a second key system on top of the wallet, which adds complexity.
+
+
+
+Reference list
+
+Ethereum Community (2025). Merkle Patricia Trie. [online] ethereum.org. Available at: https://ethereum.org/developers/docs/data-structures-and-encoding/patricia-merkle-trie/ [Accessed 5 Nov. 2026].
+
+Ethereum Community (2026). Ethereum accounts. [online] ethereum.org. Available at: https://ethereum.org/developers/docs/accounts/ [Accessed 5 Nov. 2026].
+
+Solidity (2025). Units and globally available variables — Solidity 0.8.27 documentation. [online] docs.soliditylang.org. Available at: https://docs.soliditylang.org/en/latest/units-and-global-variables.html [Accessed 5 Nov. 2026].
