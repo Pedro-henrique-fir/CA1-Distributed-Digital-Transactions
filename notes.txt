@@ -125,6 +125,8 @@ Ethereum Community (2026e). Scaling ethereum | ethereum.Org. [online] ethereum.o
 
 Ethereum Community (2026f). Stablecoins. [online] ethereum.org. Available at: https://ethereum.org/stablecoins/ [Accessed 6 Nov. 2026].
 
-Soliditylang (2025a). Types — Solidity 0.8.29 documentation. [online] Soliditylang.org. Available at: https://docs.soliditylang.org/en/latest/types.html [Accessed 9 Nov. 2026].
+Soliditylang (2025a). Security considerations — Solidity 0.8.31 documentation. [online] Soliditylang.org. Available at: https://docs.soliditylang.org/en/latest/security-considerations.html [Accessed 9 Nov. 2026].
 
-Soliditylang (2025b). Units and globally available variables — Solidity 0.8.27 documentation. [online] docs.soliditylang.org. Available at: https://docs.soliditylang.org/en/latest/units-and-global-variables.html [Accessed 9 Nov. 2026].
+Soliditylang (2025b). Types — Solidity 0.8.29 documentation. [online] Soliditylang.org. Available at: https://docs.soliditylang.org/en/latest/types.html [Accessed 9 Nov. 2026].
+
+Soliditylang (2025c). Units and globally available variables — Solidity 0.8.27 documentation. [online] docs.soliditylang.org. Available at: https://docs.soliditylang.org/en/latest/units-and-global-variables.html [Accessed 9 Nov. 2026].

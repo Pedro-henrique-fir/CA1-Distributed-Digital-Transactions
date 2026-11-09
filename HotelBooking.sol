@@ -127,6 +127,37 @@ contract HotelBooking {
     function getContractBalance() public view returns (uint) {
         return address(this).balance;
     }
+
+    function cancelBooking(uint _bookingId) public {
+        require(_bookingId < bookingCount, "Booking does not exist.");
+
+        Booking storage booking = bookings[_bookingId];
+
+        require(msg.sender == booking.guest, "Only the guest can cancel.");
+        require(booking.status == BookingStatus.Confirmed, "Booking is not confirmed.");
+        require(block.timestamp <= booking.checkInTime - 1 days, "Cancellation deadline passed.");
+
+        booking.status = BookingStatus.Cancelled;
+        bookedDates[booking.roomNumber][booking.checkInTime / 1 days] = false;
+
+        (bool success, ) = payable(booking.guest).call{value: booking.amountPaid}("");
+        require(success, "Refund failed.");
+    }
+
+    function withdrawPayment(uint _bookingId) public onlyOwner {
+        require(_bookingId < bookingCount, "Booking does not exist.");
+
+        Booking storage booking = bookings[_bookingId];
+
+        require(booking.status == BookingStatus.Confirmed, "Booking is not confirmed.");
+        require(block.timestamp >= booking.checkInTime, "Check-in time not reached.");
+
+        booking.status = BookingStatus.Completed;
+
+        (bool success, ) = payable(owner).call{value: booking.amountPaid}("");
+        require(success, "Payment failed.");
+    }
+    
 }
 
 
